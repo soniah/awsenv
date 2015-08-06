@@ -44,8 +44,8 @@ aws_secret_access_key = DEADBEEFDEADBEEF1vzfgefDEADBEEFDEADBEEF
 [example2]
 aws_access_key_id = DEADBEEFDEADBEEF
 aws_secret_access_key = DEADBEEFDEADBEEF1vzfgefDEADBEEFDEADBEEF
-aws_keyname = 'example_key'
-aws_keypath = "~/.ssh/example1.pem"
+aws_keyname = 'example2_key'
+aws_keypath = "~/.ssh/example2.pem"
 ```
 
 The following shell commands would import AWS variables into your
@@ -63,6 +63,6 @@ eval `awsenv -p example2`
 % env | grep AWS
 AWS_KEY=DEADBEEFDEADBEEF
 AWS_SECRET=DEADBEEFDEADBEEF1vzfgefDEADBEEFDEADBEEF
-AWS_KEYNAME=example_key
-AWS_KEYPATH=/Users/sonia/.ssh/example1.pem
+AWS_KEYNAME=example2_key
+AWS_KEYPATH=/Users/sonia/.ssh/example2.pem
 ```
