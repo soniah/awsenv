@@ -9,18 +9,29 @@ switching credentials and using tools like
 `aws_access_key_id` and `aws_secret_access_key`, it will also
 optionally load settings for `aws_keyname` and `aws_keypath`.
 
+# installation
+
+If you have Go installed, you can just do:
+
+```shell
+go get -u github.com/soniah/awsenv
+```
+
+This will automatically download, compile and install the app; putting
+an `awsenv` executable in your `$GOPATH/bin`.
+
+Otherwise, download a binary from the [releases
+page](https://github.com/soniah/awsenv/releases) and place it in your
+$PATH.
+
 # usage
 
-Download a binary from the [releases
-page](https://github.com/soniah/awsenv/releases/latest) and place it in
-your $PATH. Then import variables into your environment by **evaling** a
+Import variables into your environment by **evaling** a
 backticked call to **awsenv**.
 
 ```shell
 eval `awsenv -p profile-name`
 ```
-
-# example
 
 For example, if you had the following settings in
 `~/.aws/credentials`:
@@ -54,13 +65,4 @@ AWS_KEY=DEADBEEFDEADBEEF
 AWS_SECRET=DEADBEEFDEADBEEF1vzfgefDEADBEEFDEADBEEF
 AWS_KEYNAME=example_key
 AWS_KEYPATH=/Users/sonia/.ssh/example1.pem
-```
-
-# development
-
-If you wish to build your own binaries using the
-Go build-chain, or for development work:
-
-```shell
-go get -u github.com/soniah/awsenv
 ```
