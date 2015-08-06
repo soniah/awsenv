@@ -1,0 +1,14 @@
+{
+	"Tasks": [
+		"default",
+		"publish-github"
+	],
+	"PackageVersion": "0.0.2",
+	"TaskSettings": {
+		"publish-github": {
+			"owner": "soniah",
+			"repository": "awsenv"
+		}
+	},
+	"ConfigVersion": "0.9"
+}

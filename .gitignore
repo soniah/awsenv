@@ -25,3 +25,6 @@ _testmain.go
 
 # build output
 awsenv
+
+# goxc github key
+.goxc.local.json
