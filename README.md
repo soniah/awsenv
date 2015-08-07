@@ -21,12 +21,12 @@ This will automatically download, compile and install the app; putting
 an `awsenv` executable in your `$GOPATH/bin`.
 
 Otherwise, download a binary from the [releases
-page](https://github.com/soniah/awsenv/releases) and place it in your
+page](https://github.com/soniah/awsenv/releases/latest) and place it in your
 $PATH.
 
 # usage
 
-Import variables into your environment by **evaling** a
+Import variables into your environment by **eval**-ing a
 backticked call to **awsenv**.
 
 ```shell
@@ -67,7 +67,7 @@ AWS_KEYPATH=/Users/sonia/.ssh/example2.pem
 
 # flags
 
-The accepted flags can be display using `-h`:
+The accepted flags can be displayed using `-h`:
 
 ```
 % awsenv -h
