@@ -30,17 +30,18 @@ Import variables into your environment by **evaling** a
 backticked call to **awsenv**.
 
 ```shell
-eval `awsenv -p profile-name`
+eval `awsenv profile-name`
 ```
 
-For example, if you had the following settings in
-`~/.aws/credentials`:
+For example, if you had the following credential files:
 
 ```shell
+% cat ~/.aws/credentials
 [example1]
 aws_access_key_id = DEADBEEFDEADBEEF
 aws_secret_access_key = DEADBEEFDEADBEEF1vzfgefDEADBEEFDEADBEEF
 
+% cat /var/tmp/credentials
 [example2]
 aws_access_key_id = DEADBEEFDEADBEEF
 aws_secret_access_key = DEADBEEFDEADBEEF1vzfgefDEADBEEFDEADBEEF
@@ -52,17 +53,34 @@ The following shell commands would import AWS variables into your
 environment:
 
 ```shell
-eval `awsenv -p example1`
-
+% eval `awsenv example1`
 % env | grep AWS
 AWS_KEY=DEADBEEFDEADBEEF
 AWS_SECRET=DEADBEEFDEADBEEF1vzfgefDEADBEEFDEADBEEF
 
-eval `awsenv -p example2`
-
-% env | grep AWS
+% eval `awsenv example2 -f /var/tmp/credentials -v`
 AWS_KEY=DEADBEEFDEADBEEF
 AWS_SECRET=DEADBEEFDEADBEEF1vzfgefDEADBEEFDEADBEEF
 AWS_KEYNAME=example2_key
 AWS_KEYPATH=/Users/sonia/.ssh/example2.pem
+```
+
+# flags
+
+The accepted flags can be display using `-h`:
+
+```
+% awsenv -h
+Usage:
+  awsenv [OPTIONS] Profile
+
+Application Options:
+  -v, --verbose   Verbose output
+  -f, --filename= Credentials file (~/.aws/credentials)
+
+Help Options:
+  -h, --help      Show this help message
+
+Arguments:
+  Profile
 ```
