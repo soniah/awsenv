@@ -10,5 +10,5 @@ fi
 
 read -p "Have you done 'goxc bump'?"
 if [[ $REPLY =~ ^[Yy]$ ]] ; then
-	goxc -bc='linux,!arm darwin' -tasks-=deb
+	goxc -bc='linux,!arm darwin freebsd,!arm openbsd,!arm dragonfly,!arm solaris' -tasks-=deb
 fi
