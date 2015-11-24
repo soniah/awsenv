@@ -55,12 +55,12 @@ environment:
 ```shell
 % eval `awsenv example1`
 % env | grep AWS
-AWS_KEY=DEADBEEFDEADBEEF
-AWS_SECRET=DEADBEEFDEADBEEF1vzfgefDEADBEEFDEADBEEF
+AWS_ACCESS_KEY_ID=DEADBEEFDEADBEEF
+AWS_SECRET_ACCESS_KEY=DEADBEEFDEADBEEF1vzfgefDEADBEEFDEADBEEF
 
 % eval `awsenv example2 -f /var/tmp/credentials -v`
-AWS_KEY=DEADBEEFDEADBEEF
-AWS_SECRET=DEADBEEFDEADBEEF1vzfgefDEADBEEFDEADBEEF
+AWS_ACCESS_KEY_ID=DEADBEEFDEADBEEF
+AWS_SECRET_ACCESS_KEY=DEADBEEFDEADBEEF1vzfgefDEADBEEFDEADBEEF
 AWS_KEYNAME=example2_key
 AWS_KEYPATH=/Users/sonia/.ssh/example2.pem
 ```
@@ -84,3 +84,12 @@ Help Options:
 Arguments:
   Profile
 ```
+
+# build
+
+- edits
+- `goxc bump`
+- git add . ; git commit -m 'foo msg'
+- `git push --tags`
+- `goxc -bc='linux,!arm darwin'`
+
