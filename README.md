@@ -89,7 +89,10 @@ Arguments:
 
 - edits
 - `goxc bump`
-- git add . ; git commit -m 'foo msg'
-- `git push --tags`
+- `git add . ; git commit -m 'foo msg'`
+- `git push ; git push --tags`
 - `goxc -bc='linux,!arm darwin'`
 
+Also, copy `.goxc.local.json` to new build machines, or do:
+
+`goxc -wlc default publish-github -apikey=DEADBEEFDEADBEEF`
