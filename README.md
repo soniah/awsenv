@@ -20,9 +20,8 @@ go get -u github.com/soniah/awsenv
 This will automatically download, compile and install the app; putting
 an `awsenv` executable in your `$GOPATH/bin`.
 
-Otherwise, download a binary from the [releases
-page](https://github.com/soniah/awsenv/releases/latest) and place it in your
-$PATH.
+Otherwise, download the [lastest binary](https://github.com/soniah/awsenv/releases/latest) from the releases
+page and place it in your $PATH (or on Debian-like machines you can just do `sudo dpkg -i downloaded.deb`).
 
 # usage
 
