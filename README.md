@@ -63,7 +63,15 @@ AWS_SECRET_ACCESS_KEY=DEADBEEFDEADBEEF1vzfgefDEADBEEFDEADBEEF
 AWS_KEYNAME=example2_key
 AWS_KEYPATH=/Users/sonia/.ssh/example2.pem
 ```
+# vagrant example
 
+In a **Vagrantfile** you could do:
+
+```ruby
+override.ssh.username = "ubuntu"                                                
+aws.keypair_name = ENV['AWS_KEYNAME']                                           
+override.ssh.private_key_path = ENV['AWS_KEYPATH']
+```
 # flags
 
 The accepted flags can be displayed using `-h`:
