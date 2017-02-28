@@ -19,8 +19,8 @@ var opts struct {
 }
 
 // expandPath expands '~' in path
-// TODO this will fail when path is '~otheruser'. Investigate:
-// http://stackoverflow.com/questions/17609732/expand-tilde-to-home-directory
+// TODO this will fail when path is '~otheruser'
+// Use https://golang.org/pkg/path/#Clean
 func expandPath(path string) string {
 	if strings.HasPrefix(path, "~/") {
 		path = filepath.Join(os.Getenv("HOME"), path[2:])
