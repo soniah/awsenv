@@ -9,7 +9,7 @@ switching credentials and using tools like
 `aws_access_key_id` and `aws_secret_access_key`, it will also
 optionally load settings for `aws_keyname` and `aws_keypath`.
 
-# installation
+# Installation
 
 If you have Go installed, you can just do:
 
@@ -23,7 +23,7 @@ an `awsenv` executable in your `$GOPATH/bin`.
 Otherwise, download the [lastest binary](https://github.com/soniah/awsenv/releases/latest) from the releases
 page and place it in your $PATH (or on Debian-like machines you can just do `sudo dpkg -i downloaded.deb`).
 
-# usage
+# Usage
 
 Import variables into your environment by **eval**-ing a
 backticked call to **awsenv**.
@@ -63,7 +63,7 @@ AWS_SECRET_ACCESS_KEY=DEADBEEFDEADBEEF1vzfgefDEADBEEFDEADBEEF
 AWS_KEYNAME=example2_key
 AWS_KEYPATH=/Users/sonia/.ssh/example2.pem
 ```
-# vagrant example
+# Vagrant Example
 
 In a **Vagrantfile** you could do:
 
@@ -72,7 +72,7 @@ override.ssh.username = "ubuntu"
 aws.keypair_name = ENV['AWS_KEYNAME']                                           
 override.ssh.private_key_path = ENV['AWS_KEYPATH']
 ```
-# flags
+# Flags
 
 The accepted flags can be displayed using `-h`:
 
@@ -92,7 +92,21 @@ Arguments:
   Profile
 ```
 
-# build
+# Contributions
+
+Contributions are welcome.
+
+If you've never contributed to a Go project before here is an example workflow.
+
+1. [fork this repo on the GitHub webpage](https://github.com/soniah/awsenv/fork)
+1. `go get github.com/soniah/awsenv`
+1. `cd $GOPATH/src/github.com/soniah/awsenv`
+1. `git remote rename origin upstream`
+1. `git remote add origin git@github.com:<your-github-username>/awsenv.git`
+1. `git checkout -b development`
+1. `git push -u origin development` (setup where you push to, check it works)
+
+# Build
 
 - edits
 - `goxc bump`
