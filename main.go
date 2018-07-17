@@ -2,12 +2,12 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"os"
-	"path/filepath"
-	"strings"
 
 	"github.com/go-ini/ini"
 	"github.com/jessevdk/go-flags"
+	ghd "github.com/mitchellh/go-homedir"
 )
 
 var opts struct {
@@ -16,16 +16,6 @@ var opts struct {
 	} `positional-args:"yes" required:"yes"`
 	Verbose  bool   `short:"v" long:"verbose" description:"Verbose output"`
 	Filename string `short:"f" long:"filename" description:"Credentials file" default:"~/.aws/credentials"`
-}
-
-// expandPath expands '~' in path
-// TODO this will fail when path is '~otheruser'
-// Use https://golang.org/pkg/path/#Clean
-func expandPath(path string) string {
-	if strings.HasPrefix(path, "~/") {
-		path = filepath.Join(os.Getenv("HOME"), path[2:])
-	}
-	return path
 }
 
 func main() {
@@ -37,33 +27,32 @@ func main() {
 		if typ == flags.ErrHelp {
 			os.Exit(0)
 		} else {
-			fmt.Println(err)
-			os.Exit(1)
+			log.Fatalln(err)
 		}
 	}
 
 	// load from profile
-	credentials_path := expandPath(opts.Filename)
-	cfg, err := ini.Load(credentials_path)
+	credentialsPath, err := ghd.Expand(opts.Filename)
 	if err != nil {
-		fmt.Println(err)
-		os.Exit(1)
+		log.Fatalln(err)
+	}
+	cfg, err := ini.Load(credentialsPath)
+	if err != nil {
+		log.Fatalln(err)
 	}
 	section, err := cfg.GetSection(opts.Positional.Profile)
 	if err != nil {
-		fmt.Println(err)
-		os.Exit(1)
+		log.Fatalln(err)
 	}
 
-	// AWS_KEY
-	key := section.Key("aws_access_key_id").String()
-	// AWS_SECRET
-	secret := section.Key("aws_secret_access_key").String()
-	// AWS_KEYNAME
-	keyname := section.Key("aws_keyname").String()
-	// AWS_KEYPATH
-	kp := section.Key("aws_keypath").String()
-	keypath := expandPath(kp)
+	key := section.Key("aws_access_key_id").String()        // AWS_KEY
+	secret := section.Key("aws_secret_access_key").String() // AWS_SECRET
+	keyname := section.Key("aws_keyname").String()          // AWS_KEYNAME
+	kp := section.Key("aws_keypath").String()               // AWS_KEYPATH
+	keyPath, err := ghd.Expand(kp)
+	if err != nil {
+		log.Fatalln(err)
+	}
 
 	// output
 	out := ""
@@ -74,8 +63,8 @@ func main() {
 	} else {
 		out += "unset AWS_KEYNAME; "
 	}
-	if len(keypath) > 0 {
-		out += fmt.Sprintf("export AWS_KEYPATH='%s'; ", keypath)
+	if len(keyPath) > 0 {
+		out += fmt.Sprintf("export AWS_KEYPATH='%s'; ", keyPath)
 	} else {
 		out += "unset AWS_KEYPATH; "
 	}

@@ -1,0 +1,30 @@
+{
+  "Enable": [
+    "deadcode",
+    "dupl",
+    "errcheck",
+    "gas",
+    "goconst",
+    "gocyclo",
+    "goimports",
+    "golint",
+    "gosimple",
+    "gotype",
+    "gotypex",
+    "ineffassign",
+    "interfacer",
+    "lll",
+    "maligned",
+    "megacheck",
+    "misspell",
+    "nakedret",
+    "safesql",
+    "staticcheck",
+    "structcheck",
+    "unconvert",
+    "unparam",
+    "unused",
+    "varcheck",
+    "vet"
+  ]
+}
