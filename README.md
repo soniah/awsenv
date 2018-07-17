@@ -11,22 +11,20 @@ optionally load settings for `aws_keyname` and `aws_keypath`.
 
 # Installation
 
-If you have Go installed, you can just do:
 
 ```shell
+# install Go from https://golang.org/dl/
+export GOPATH=$HOME/go
 go get -u github.com/soniah/awsenv
 ```
 
-This will automatically download, compile and install the app; putting
-an `awsenv` executable in your `$GOPATH/bin`.
-
-Otherwise, download the [lastest binary](https://github.com/soniah/awsenv/releases/latest) from the releases
-page and place it in your $PATH (or on Debian-like machines you can just do `sudo dpkg -i downloaded.deb`).
+This will automatically download, compile and install the `awsenv` executable
+to `$GOPATH/bin`.
 
 # Usage
 
-Import variables into your environment by **eval**-ing a
-backticked call to **awsenv**.
+Import variables into your environment by **eval**-ing a backticked call to
+**awsenv**.
 
 ```shell
 eval `awsenv profile-name`
@@ -68,8 +66,8 @@ AWS_KEYPATH=/Users/sonia/.ssh/example2.pem
 In a **Vagrantfile** you could do:
 
 ```ruby
-override.ssh.username = "ubuntu"                                                
-aws.keypair_name = ENV['AWS_KEYNAME']                                           
+override.ssh.username = "ubuntu"
+aws.keypair_name = ENV['AWS_KEYNAME']
 override.ssh.private_key_path = ENV['AWS_KEYPATH']
 ```
 # Flags
@@ -102,7 +100,3 @@ Contributions are welcome; here is an example workflow using [hub](https://githu
 1. `git co -b dev` (and write some code)
 1. `git push -u <your-github-username> dev`
 1. `hub pull-request`
-
-# Build and deploy binaries
-
-Run `./release`.

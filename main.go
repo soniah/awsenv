@@ -26,9 +26,8 @@ func main() {
 		typ := err.(*flags.Error).Type
 		if typ == flags.ErrHelp {
 			os.Exit(0)
-		} else {
-			log.Fatalln(err)
 		}
+		log.Fatalln(err)
 	}
 
 	// load from profile
