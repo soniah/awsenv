@@ -103,14 +103,6 @@ Contributions are welcome; here is an example workflow using [hub](https://githu
 1. `git push -u <your-github-username> dev`
 1. `hub pull-request`
 
-# Build
+# Build and deploy binaries
 
-- edits
-- `goxc bump`
-- `git add . ; git commit -m 'foo msg'`
-- `git push ; git push --tags`
-- `goxc -bc='linux,!arm darwin'`
-
-Also, copy `.goxc.local.json` to new build machines, or do:
-
-`goxc -wlc default publish-github -apikey=DEADBEEFDEADBEEF`
+Run `./release`.

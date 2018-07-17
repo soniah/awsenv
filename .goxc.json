@@ -3,7 +3,7 @@
 		"default",
 		"publish-github"
 	],
-	"PackageVersion": "0.0.7",
+	"PackageVersion": "0.0.8",
 	"TaskSettings": {
 		"publish-github": {
 			"owner": "soniah",

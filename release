@@ -8,7 +8,7 @@ if ! [ -f ".goxc.local.json" ] ; then
 	exit 1
 fi
 
-read -p "Have you done 'goxc bump'?"
+read -p "Have you done a 'goxc bump', tag, commit and push?"
 if [[ $REPLY =~ ^[Yy]$ ]] ; then
 	goxc -bc='linux,!arm darwin freebsd,!arm openbsd,!arm dragonfly,!arm solaris' -tasks-=deb
 fi
