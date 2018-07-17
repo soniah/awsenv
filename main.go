@@ -44,8 +44,8 @@ func main() {
 		log.Fatalln(err)
 	}
 
-	key := section.Key("aws_access_key_id").String()        // AWS_KEY
-	secret := section.Key("aws_secret_access_key").String() // AWS_SECRET
+	key := section.Key("aws_access_key_id").String()        // AWS_ACCESS_KEY_ID
+	secret := section.Key("aws_secret_access_key").String() // AWS_SECRET_ACCESS_KEY
 	keyname := section.Key("aws_keyname").String()          // AWS_KEYNAME
 	kp := section.Key("aws_keypath").String()               // AWS_KEYPATH
 	keyPath, err := ghd.Expand(kp)
