@@ -94,17 +94,14 @@ Arguments:
 
 # Contributions
 
-Contributions are welcome.
+Contributions are welcome; here is an example workflow using [hub](https://github.com/github/hub).
 
-If you've never contributed to a Go project before here is an example workflow.
-
-1. [fork this repo on the GitHub webpage](https://github.com/soniah/awsenv/fork)
 1. `go get github.com/soniah/awsenv`
 1. `cd $GOPATH/src/github.com/soniah/awsenv`
-1. `git remote rename origin upstream`
-1. `git remote add origin git@github.com:<your-github-username>/awsenv.git`
-1. `git checkout -b development`
-1. `git push -u origin development` (setup where you push to, check it works)
+1. `hub fork`
+1. `git co -b dev` (and write some code)
+1. `git push -u <your-github-username> dev`
+1. `hub pull-request`
 
 # Build
 
